@@ -1,7 +1,10 @@
+from types import GetSetDescriptorType
 from django.shortcuts import render
 
 # Create your views here.
 from .models import Albums
+from .forms import AlbumForm
+
 
 
 def list_albums(request):
@@ -9,6 +12,17 @@ def list_albums(request):
     return render(request, "albums/list_albums.html",
                   {"albums": albums})
 
+
+def add_album(request):
+    if request.method == 'GET':
+        form = AlbumForm()
+    else:
+        form = AlbumForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_albums')
+
+    return render(request, "albums/add_album.html", {"form": form})             
 
 
 
