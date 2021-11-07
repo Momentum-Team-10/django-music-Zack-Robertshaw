@@ -21,10 +21,11 @@
         <h3>First listen date: {{ album.created_at }}</h3>
 
     <p>
-      <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>    
+      <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>  
+      <a class="red" href="{% url 'delete_album' pk=album.pk %}">Delete Album</a>
+  
     </p>
     
 {% endfor %}
 </div>
 {% endblock%}
-      <!-- <a class="red" href="{% url 'delete_album' pk=album.pk %}">Delete Album</a> -->
