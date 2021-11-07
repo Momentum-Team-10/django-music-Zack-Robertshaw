@@ -1,0 +1,28 @@
+* {box-sizing: border-box;
+    margin: 0;
+ }
+
+ 
+h1 {
+    color: blue;
+}
+
+#songs-list   {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 15px;
+    margin-bottom: 50px;
+}
+
+
+.card {
+    margin: 25px;
+    border-width: 20px;
+    border-color: blue;
+    background-color: #DEEFB7;
+    max-width: 350px;
+    text-align: center;
+    align-content: center;
+    border-radius: 15px;
+
+}

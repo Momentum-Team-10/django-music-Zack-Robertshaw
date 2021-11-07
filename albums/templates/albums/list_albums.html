@@ -1,31 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>list_albums html</h1>
+<h1>List Albums</h1>
 
 <div>
-    <form action="{% url 'add_album'%}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div>
-          <button type="submit">Add Album</button>
-        </div>
-      </form>
-    </div>
-    
-
-    {% for album in albums %}
+  <form action="{% url 'add_album'%}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
     <div>
-        <h2>Title: {{ album.title }}</h2>
-        <h3>Artist: {{ album.artist}}</h3>
-        <h3>First listen date: {{ album.created_at }}</h3>
+      <button type="submit">Add Album</button>
+    </div>
+  </form>
+</div>
+
+
+{% for album in albums %}
+<!-- <div id="songs-list"> -->
+  <div class="card">
+    <h2>Title: {{ album.title }}</h2>
+    <h3>Artist: {{ album.artist}}</h3>
+    <h3>First listen date: {{ album.created_at }}</h3>
 
     <p>
-      <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>  
+      <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
       <a class="red" href="{% url 'delete_album' pk=album.pk %}">Delete Album</a>
-  
+
     </p>
-    
-{% endfor %}
-</div>
+
+    {% endfor %}
+  </div>
+<!-- </div> -->
 {% endblock%}
