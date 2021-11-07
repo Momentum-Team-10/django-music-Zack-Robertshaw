@@ -24,6 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', albums_views.list_albums, name='list_albums'),
     path('albums/add_album/', albums_views.add_album, name='add_album'),
+    path('albums/<int:pk>/edit_album/',
+         albums_views.edit_album,
+         name='edit_album'),
+
 
 ]
     # path('__debug__/', include(debug_toolbar.urls)),

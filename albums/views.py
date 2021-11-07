@@ -22,7 +22,38 @@ def add_album(request):
             form.save()
             return redirect(to='list_albums')
 
-    return render(request, "albums/add_album.html", {"form": form})             
+    return render(request, "albums/add_album.html", {"form": form})   
 
+
+def edit_album(request, pk):
+    album = get_object_or_404(Albums, pk=pk)
+    if request.method == 'GET':
+        form = AlbumForm(instance=album)
+    else:
+        form = AlbumForm(data=request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_albums')
+
+    return render(request, "albums/edit_album.html", {
+        "form": form,
+        "album": album
+    })
+       
+
+# def edit_contact(request, pk):
+#     contact = get_object_or_404(Contact, pk=pk)
+#     if request.method == 'GET':
+#         form = ContactForm(instance=contact)
+#     else:
+#         form = ContactForm(data=request.POST, instance=contact)
+#         if form.is_valid():
+#             form.save()
+#             return redirect(to='list_contacts')
+
+#     return render(request, "contacts/edit_contact.html", {
+#         "form": form,
+#         "contact": contact
+#     })
 
 

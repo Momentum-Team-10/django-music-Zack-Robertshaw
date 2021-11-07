@@ -19,6 +19,15 @@ MIGRATE!!!
 
 top lines of each file: make sure imports are correct
 
+things I learned: 
+Commented out lines in html templates mess things up. !-- syntax?
+
+
+Questions:
+I don't have all those GET and POST urls specified in the readme
+Commented out lines in html templates mess things up. !-- syntax?
+
+
 
 
 """
