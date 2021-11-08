@@ -13,9 +13,8 @@
   </form>
 </div>
 
-
-{% for album in albums %}
-<!-- <div id="songs-list"> -->
+<div id="songs-list">
+  {% for album in albums %}
   <div class="card">
     <h2>Title: {{ album.title }}</h2>
     <h3>Artist: {{ album.artist}}</h3>
@@ -26,8 +25,8 @@
       <a class="red" href="{% url 'delete_album' pk=album.pk %}">Delete Album</a>
 
     </p>
-
-    {% endfor %}
   </div>
-<!-- </div> -->
+
+  {% endfor %}
+</div>
 {% endblock%}
